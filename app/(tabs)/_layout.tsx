@@ -53,7 +53,7 @@ const Tablayout = () => {
           options={{
             title: tab.title,
             tabBarIcon: ({ focused }) => (
-              <TabIcon focused={focused} icon={tab.icons} />
+              <TabIcon focused={focused} icon={tab.icon} />
             ),
           }}
         />

@@ -1,33 +1,36 @@
+import { icons } from "@/constants/icons";
+import images from "@/constants/images";
+import { HOME_BALANCE, HOME_USER } from "@/data";
 import "@/global.css";
-import { Link } from "expo-router";
+import { formatCurrency } from "@/lib/utils";
+import dayjs from "dayjs";
 import { styled } from "nativewind";
-import { Text } from "react-native";
-
+import { Image, Text, View } from "react-native";
 import { SafeAreaView as RNSafeAreaView } from "react-native-safe-area-context";
-
 const SafeAreaView = styled(RNSafeAreaView);
 export default function App() {
   return (
     <SafeAreaView className="flex-1 p-5 bg-background">
-      <Text className="text-7xl text-primary font-sans-extrabold ">Home</Text>
-      <Link
-        href="/onboarding"
-        className="mt-4 font-sans-bold rounded bg-primary text-white p-4"
-      >
-        Go to Onboarding
-      </Link>
-      <Link
-        href="/(auth)/sign-in"
-        className="mt-4 font-sans-bold rounded bg-primary  text-white p-4"
-      >
-        Go to Sign In
-      </Link>
-      <Link
-        href="/(auth)/sign-up"
-        className="mt-4 font-sans-bold rounded bg-primary text-white p-4"
-      >
-        Go to Sign Up
-      </Link>
+      <View className="home-reader">
+        <View className="home-row">
+          <View className="home-user">
+            <Image source={images.avatar} className="home-avatar" />
+            <Text className="home-user-name">{HOME_USER.name}</Text>
+          </View>
+          <Image source={icons.add} className="home-add-icon" />
+        </View>
+      </View>
+      <View className="home-balance-card">
+        <Text className="home-balance-label">Current Balance</Text>
+        <View className="home-balance-row">
+          <Text className="home-balance-amount">
+            {formatCurrency(HOME_BALANCE.amount)}
+          </Text>
+          <Text className="home-balance-date">
+            {dayjs(HOME_BALANCE.nextRenewalDate).format("MM/DD")}
+          </Text>
+        </View>
+      </View>
     </SafeAreaView>
   );
 }
