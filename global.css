@@ -46,6 +46,9 @@
 }
 
 @layer components {
+  .all-subscriptions {
+    @apply flex-1;
+  }
   .tabs-icon {
     @apply size-12 items-center justify-center;
   }
