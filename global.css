@@ -48,8 +48,11 @@
 }
 
 @layer components {
+  .keyboard-view {
+    @apply flex-1;
+  }
   .auth-banner {
-    @apply items-center justify-center mt-20;
+    @apply items-center justify-center p-5 mt-20;
   }
   .auth-logo {
     @apply flex flex-row gap-3 mb-15;
@@ -73,22 +76,22 @@
     @apply font-sans-light text-primary;
   }
   .auth-form {
-    @apply w-max border-border-form border-1 rounded-lg items-start bg-form p-5;
+    @apply w-full border-border-form border-1 rounded-lg items-start bg-form p-5;
   }
   .auth-input-label {
     @apply font-sans-bold;
   }
   .auth-input {
-    @apply border-border-input w-100 h-15 pl-3 rounded-lg;
+    @apply border-border-input w-full h-15 pl-3 rounded-lg;
   }
   .sign-in-button {
-    @apply bg-accent w-100 items-center h-12 rounded-lg justify-center;
+    @apply bg-accent min-w-full items-center h-12 rounded-lg justify-center;
   }
   .sign-in-text {
     @apply text-white font-sans-semibold;
   }
   .footer {
-    @apply flex-row justify-center mt-6 gap-1;
+    @apply w-full flex-row justify-center mt-6 gap-1;
   }
 
   .sign-up-message {
